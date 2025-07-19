@@ -1,0 +1,41 @@
+FlightNo,SeatNo,Status,type
+101,1A,Booked,First
+101,1B,Available,First
+101,2A,Available,Business
+101,2B,Available,Business
+101,3A,Available,Premium Economy
+101,3B,Available,Premium Economy
+101,4A,Available,Economy
+101,4B,Available,Emergency Row
+102,5A,Available,Economy
+102,5B,Available,Economy
+102,5C,Available,First
+102,5D,Available,First
+102,5E,Available,Business
+102,5F,Available,Business
+102,5G,Available,Premium Economy
+102,5H,Available,Premium Economy
+102,5I,Available,Economy
+102,5J,Available,Emergency Row
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+103,6A,Booked,First
+103,6B,Available,First
+103,6C,Available,Business
+103,6D,Available,Business
+103,6F,Available,Premium Economy
+103,6E,Available,Premium Economy
+103,6G,Available,Economy
+103,6H,Available,Emergency Row
+103,6I,Available,Economy
+103,6J,Available,Economy

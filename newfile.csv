@@ -1,0 +1,5 @@
+FlightNo,From,To,Date,Time,Price
+101,Pune,Mumbai,2025-07-20,10:00,3500
+102,Mumbai,Delhi,2025-07-20,14:30,5500
+103,Pune,Bangalore,2025-07-21,09:45,4800
+104,Nagpur,Hyderabad,2025-07-22,12:15,3900
