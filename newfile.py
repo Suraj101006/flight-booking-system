@@ -82,13 +82,15 @@ def bookticket():
                     seat['Status'] = 'Booked'
                     booked = True
                     print("Seat booked successfully ")
+                    return True
                 else:
                     print(" Seat is already booked.")
                 break
 
     if not booked:
         print(" Invalid seat number or not available.")
-
+    return False
+    
    
     with open("book (1).csv", "w", newline="") as file:
         fieldnames = ['FlightNo', 'SeatNo', 'Status', 'type']
@@ -99,8 +101,21 @@ def bookticket():
 class Info:
     def __init__(self):
         self.name = input("Enter Your Full Name: ")
-        self.age = int(input("Enter your age: "))
-        self.mobile =int( input("Enter your mobile no: "))
+        while True:
+            self.age = (input("Enter your age: "))
+            if self.age.isdigit():
+                self.age = int(self.age)
+                if 18 <= self.age <= 120:
+                     break
+            else:
+                  print("Invalid age. Please enter age between 18 to 120.")
+        while True:
+            self.mobile = input("Enter your mobile no: ")
+            if self.mobile.isdigit():
+                if len(self.mobile)  == 10:
+                    break
+            else:
+                  print(" Invalid mobile number. Please enter a 10-digit number.")
         self.dob = input("Enter the date of birth (dd/mm/yyyy): ")
         self.gender = input("Enter your gender: ")
 
@@ -111,18 +126,19 @@ class Info:
         print(f"Mobile : {self.mobile}")
         print(f"DOB    : {self.dob}")
         print(f"Gender : {self.gender}")
-    def save(self):     
-        with open("book.csv", "a", newline="") as file:
+    def save(self):    
+        with open("book.csv", "w", newline="") as file:
             fieldnames = ['Name', 'Age', 'Mobile', 'DOB', 'Gender']
-            writer = csv.DictWriter(file, fieldnames=fieldnames)
-   
+            writer = csv.DictWriter(file,                                     fieldnames=fieldnames)
+
             writer.writerow({
             'Name': self.name,
-            'Age': self.age,
-            'Mobile': self.mobile,
-            'DOB': self.dob,
-            'Gender': self.gender
-        })
+             'Age': self.age,
+             'Mobile': self.mobile,
+             'DOB': self.dob,
+             'Gender': self.gender
+    }) 
+        
 
 flights = flightsdata()
         
@@ -131,9 +147,8 @@ while True:
     print("1. Show All Flights")
     print("2. Search Flights")
     print("3. Sort Flights by Price (High to Low)")
-    print("4. Enter Passenger Info")
-    print("5. Book Ticket")
-    print("6. Exit")
+    print("4. Book Ticket")
+    print("5. Exit")
     choice = input("Enter your choice (1-6): ")
 
     if choice == '1':
@@ -143,12 +158,13 @@ while True:
     elif choice == '3':
         sort()
     elif choice == '4':
-        passenger = Info()
-        passenger.show()
-        passenger.save()
+          success = bookticket()
+          if success:
+            passenger = Info()
+            passenger.show()
+            passenger.save()
+        
     elif choice == '5':
-        bookticket()
-    elif choice == '6':
         print("Thank you ")
         break
     else:
