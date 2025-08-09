@@ -30,7 +30,7 @@ def search():
 def sort():
     i = 0
     while i < len(flights):
-        j = i + 1
+        j = i+1
         while j < len(flights):
             if int(flights[j]['Price']) > int(flights[i]['Price']):
                 flights[i], flights[j] = flights[j], flights[i]
